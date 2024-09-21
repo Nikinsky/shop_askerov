@@ -9,6 +9,8 @@ class LaptopPhotoSerializer(serializers.ModelSerializer):
 
 
 class LaptopSerializer(serializers.ModelSerializer):
+    photos = LaptopPhotoSerializer(many=True, read_only=True)
+
     class Meta:
         model = Laptop
-        fields = '__all__'
+        fields = ['photos']
